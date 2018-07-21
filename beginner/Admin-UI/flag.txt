@@ -1,6 +1,6 @@
-While reading the version of the software, it doesn't provide us a menu similar to what was shown when you first connect to it. In addition, it requres us to type out the version names. That makes the program look like it is reading from a file path, so we can replace the file name with a path name.
+While reading the version of the software, it doesn't provide us a menu similar to what was shown when you first connect to it. In addition, it requres us to type out the version names. That makes the program look like it is reading from a file path, I tried replacing "Version0.3" with "./Version0.3" and it returned the same result. This means that we have a potential for a path traversal bug. So we can replace the file name with a path name to another file to explore this system.
 
-Then, I just serached for some file like ../password or ../flag and the flag is in there.
+Then, I serached for some file like ../password or ../flag and the flag is in there.
 
 
 CTF{I_luv_buggy_sOFtware}
