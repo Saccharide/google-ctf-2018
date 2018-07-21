@@ -1,0 +1,6 @@
+While reading the version of the software, it doesn't provide us a menu similar to what was shown when you first connect to it. In addition, it requres us to type out the version names. That makes the program look like it is reading from a file path, so we can replace the file name with a path name.
+
+Then, I just serached for some file like ../password or ../flag and the flag is in there.
+
+
+CTF{I_luv_buggy_sOFtware}
