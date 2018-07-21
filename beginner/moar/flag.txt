@@ -1,0 +1,3 @@
+After connecting to server, a man page was loaded, so we can run command using ! + command to navigate the file system, and at last found the key using
+`!cat /home/moar/disable_dmz.sh
+CTF{SOmething-CATastr0phic}
