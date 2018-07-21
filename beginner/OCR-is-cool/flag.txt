@@ -1,0 +1,3 @@
+// After searching through rot n = 7, the first leter must be 'C', so it was easy to figure out
+CTF{caesarcipherisasubstitutioncipher}
+
