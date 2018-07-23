@@ -113,13 +113,18 @@ async function x(password) {
     };
     for (var i = 0; i < code.length; i += 4) {
 
-      var shallow_copy = Object.assign({}, env);
-      console.log("env = ",shallow_copy);
+//      var shallow_copy = Object.assign({}, env);
+  //    console.log("env = ",shallow_copy);
 
       //icff
         var [lhs, fn, arg1, arg2] = code.substr(i, 4);
 
-        console.log("env = ",shallow_copy);
+        try{
+          console.log("lhs, fn, arg1, arg2 = ",lhs, fn, arg1, arg2, env.h, env.Ѧ, env.ҁ, env.ш);
+        }
+        catch(e){
+          console.log("lhs, fn, arg1, arg2 = ",lhs, fn, arg1, arg2,env.h);
+        }
         try {
            // env[lhs] = c(f, f)
             env[lhs] = env[fn](env[arg1], env[arg2]);
