@@ -112,21 +112,33 @@ async function x(password) {
         h: 0,
     };
     for (var i = 0; i < code.length; i += 4) {
+
+      var shallow_copy = Object.assign({}, env);
+      console.log("env = ",shallow_copy);
+
       //icff
         var [lhs, fn, arg1, arg2] = code.substr(i, 4);
+
+        console.log("env = ",shallow_copy);
         try {
            // env[lhs] = c(f, f)
             env[lhs] = env[fn](env[arg1], env[arg2]);
-            
-            //env[i] = 2
         } catch(e) {
             env[lhs] = new env[fn](env[arg1], env[arg2]);
         }
-        console.log(lhs , ":", fn,":",env[lhs], " : " , arg1, " : ", arg2);
+        //console.log(lhs , ":", fn,":",env[lhs], " : " , arg1, " : ", arg2, " : "  , env.h);
+        
+
+   //      ѯ : d : g  :  Н  :  a
         if (env[lhs] instanceof Promise) env[lhs] = await env[lhs];
 
     }
-     console.log("--->",env[lhs])
+    console.log(env)
+    //console.log(lhs , ":", fn,":",env[lhs], " : " , arg1, " : ", arg2, " : "  , env.h);
+     //console.log("--->",env[lhs])
+  //   console.log("---->", new TextDecoder().decode(env.));
+    //console.log("---->",env.h);
+    //we want env.h == 0
     return !env.h;
   }
 </script>
