@@ -111,8 +111,10 @@ async function x(password) {
         g: new TextEncoder().encode(password),
         h: 0,
     };
+    var alphabets = []
     for (var i = 0; i < code.length; i += 4) {
 
+    // SECRET ARRAY THAT IS USED TO COMPARE TO EACH HASH: [230,104,96,84,111,24,205,187,205,134,179,94,24,181,37,191,252,103,247,114,198,80,206,223,227,255,122,0,38,250,29,238]
 //      var shallow_copy = Object.assign({}, env);
   //    console.log("env = ",shallow_copy);
 
@@ -120,10 +122,14 @@ async function x(password) {
         var [lhs, fn, arg1, arg2] = code.substr(i, 4);
 
         try{
-          console.log("lhs, fn, arg1, arg2 = ",lhs, fn, arg1, arg2, env.h, env.Ѧ, env.ҁ, env.ш);
+          console.log("lhs, fn, arg1, arg2 = ",lhs, fn, arg1, arg2, env.h);//, env.ҁ, env.ш);
+          console.log("lhs, fn, arg1, arg2 = ",env[lhs], env[fn], env[arg1], env[arg2], env.h);//, env.ҁ, env.ш);
+          console.log("--------------------------------------------------------------------");
         }
         catch(e){
           console.log("lhs, fn, arg1, arg2 = ",lhs, fn, arg1, arg2,env.h);
+          console.log("lhs, fn, arg1, arg2 = ",env[lhs], env[fn], env[arg1], env[arg2], env.h);//, env.ҁ, env.ш);
+          console.log("--------------------------------------------------------------------");
         }
         try {
            // env[lhs] = c(f, f)
@@ -138,7 +144,7 @@ async function x(password) {
         if (env[lhs] instanceof Promise) env[lhs] = await env[lhs];
 
     }
-    console.log(env)
+    //console.log(env)x`
     //console.log(lhs , ":", fn,":",env[lhs], " : " , arg1, " : ", arg2, " : "  , env.h);
      //console.log("--->",env[lhs])
   //   console.log("---->", new TextDecoder().decode(env.));
@@ -150,6 +156,8 @@ async function x(password) {
 <script>
 const alg = { name: 'AES-CBC', iv: Uint8Array.from([211,42,178,197,55,212,108,85,255,21,132,210,209,137,37,24])};
 const secret = Uint8Array.from([26,151,171,117,143,168,228,24,197,212,192,15,242,175,113,59,102,57,120,172,50,64,201,73,39,92,100,64,172,223,46,189,65,120,223,15,34,96,132,7,53,63,227,157,15,37,126,106]);
+
+
 async function open_safe() {
   keyhole.disabled = true;
   password = /^CTF{([0-9a-zA-Z_@!?-]+)}$/.exec(keyhole.value);
