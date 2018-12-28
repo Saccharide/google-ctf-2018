@@ -4,7 +4,7 @@ unzip -o -qq original.ZIP
 
 while [ ! -f "/password" ]
 do
-    file=$(ls -t | grep -iv "ZIP$" | grep -v ".sh")
+    file=$(ls -t | grep -iv "ZIP$" | grep -v "sh$" | grep -v "txt$")
     echo "-----> [FILE MATACHED] = $file"
     newfile="$file.zip"
     echo "-----> [FILE UNZIPING] = $newfile"
