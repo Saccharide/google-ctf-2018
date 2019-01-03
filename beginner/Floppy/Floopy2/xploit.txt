@@ -1,0 +1,6 @@
+COM is a type of executeable file with plain text as commands for DOS system, simialr to the current Batch file. 
+
+The defualt version of Dosbox in ubuntu repository is not sufficient to debug the www.com file, I tried to download and compile from source, but was unable to do it. The problem I faced was with SDL-1.2, specifically build/SDL_x11dyn.lo failed. I was able to fix that problem by installing SDL1.2 and then comment out the LONG64 block in src/video/x11/SDL_x11sym.h. However, I still couldn't get it to configure correctly.
+
+BUT, found another method to retrive the flag without a debugger.
+When we first cat www.com, we saw that there was a bunch of jiberish and one line of readable text. But when we run this file in DOS box, we only saw that one line of readble text. The jiberish was no where to be found. This is because that the program makes use of a few non-printing characters like (SO, DEL, CR2 and SYN) in order to mess with the formatting to hide the full output in the DOS terminal. By using cat -A on the FLAG.txt after we redirect the output of WWW.com > FLAG.TXT, we were able to see the full output.
